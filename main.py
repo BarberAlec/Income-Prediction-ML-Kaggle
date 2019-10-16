@@ -84,7 +84,8 @@ def main(arg1=None,arg2=None,dest_file=None):
     #     reg = RandomForestRegressor(n_estimators=200).fit(X_arr,y_train)#max_depth=20
     
     # Extremely effective and quite quick - Best results, also found iterations above ~20'000 are not useful
-    reg = CatBoostRegressor(iterations=20000,task_type="GPU").fit(X_arr,y_train)
+    reg = CatBoostRegressor(iterations=20000).fit(X_arr,y_train)
+    # Note: speed up CatBoostRegressor by using GPU with: task_type="GPU"
     
 
     # Make predictions and print scores
